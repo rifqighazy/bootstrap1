@@ -11,7 +11,7 @@
         <!-- Bootstrap CSS jangan diubah -->
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <!-- Title halaman -->
-        <title>Simple Login Page</title>
+        <title>Simple Register Page</title>
     </head>
     <body>
         <div class="container mt-5">
@@ -19,36 +19,27 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="text-center">Register</h3>
+                            <h3 class="text-center">Register Page</h3>
                         </div>
                         <div class="card-body">
                             <form action="insert.php" method="post">
                                 <div class="mb-3">
-                                    <label for="name">Nama</label>
+                                    <label for="name">Nama Lengkap</label>
                                     <input
-                                        type="text"
+                                        type="name"
                                         class="form-control"
                                         name="name"
                                         id="name"
-                                        placeholder="Nama">
+                                        placeholder="Nama Lengkap">
                                 </div>
                                 <div class="mb-3">
                                     <label for="username">Username</label>
                                     <input
-                                        type="text"
+                                        type="username"
                                         class="form-control"
                                         name="username"
                                         id="username"
                                         placeholder="Username">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telepon">Nomor HP</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        name="telepon"
-                                        id="telepon"
-                                        placeholder="Nomor HP">
                                 </div>
                                 <div class="mb-3">
                                     <label for="Password">Password</label>
@@ -64,13 +55,26 @@
                                     <input
                                         type="password"
                                         class="form-control"
-                                        name="password"
-                                        id="Password"
+                                        name="confirm_password"
+                                        id="confirm_Password"
                                         placeholder="Confirm Password">
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" name="register" class="btn-input">Send</button>
+                                    <label for="telepon">Nomor Telepon</label>
+                                    <input
+                                        type="telephone"
+                                        class="form-control"
+                                        name="telephone"
+                                        id="telephone"
+                                        placeholder="Nomor Telepon">
                                 </div>
+                                <div class="mb-3 text-center">
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                                <hr>
+                                <p class="text-center mb-0">If you have an account
+                                    <a href="login.php">Login Now</a>
+                                </p>
                             </form>
                         </div>
                 </div>

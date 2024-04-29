@@ -1,5 +1,5 @@
 <?php
-require 'koneksi.php';
+require 'database.php';
 
 $full_name = $_POST["name"];
 $username = $_POST["username"];

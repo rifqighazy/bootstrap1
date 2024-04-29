@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION["username"])){
+if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
 ?>
@@ -69,12 +69,6 @@ if(!isset($_SESSION["username"])){
                                     Users
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.php?page=data">
-                                    <span data-feather="heart"></span>
-                                    Users
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -98,9 +92,6 @@ if(!isset($_SESSION["username"])){
                     break;
                     case 'user':
                     include "user.php";
-                    break; 
-                    case 'data':
-                    include "data.php";
                     break; 
                 }
             }

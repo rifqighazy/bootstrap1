@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
     <head>
@@ -22,8 +21,8 @@
                         <div class="card-header">
                             <h3 class="text-center">Login Page</h3>
                         </div>
-                        <div class="card-body">
-                            <form action="masuk.php" method="post">
+                        <div class="card-body"> 
+                            <form action="loginscript.php" method="post">
                                 <div class="mb-3">
                                     <label for="username">Username</label>
                                     <input
@@ -39,7 +38,7 @@
                                         type="password"
                                         class="form-control"
                                         name="password"
-                                        id="Password"
+                                        id="password"
                                         placeholder="Password">
                                 </div>
                                 <div class="float-end">
