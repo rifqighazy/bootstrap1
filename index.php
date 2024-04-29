@@ -69,6 +69,12 @@ if(!isset($_SESSION['username'])){
                                     Users
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php?page=data">
+                                    <span data-feather="heart"></span>
+                                    Table
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -92,6 +98,9 @@ if(!isset($_SESSION['username'])){
                     break;
                     case 'user':
                     include "user.php";
+                    break; 
+                    case 'data':
+                    include "data.php";
                     break; 
                 }
             }
