@@ -1,3 +1,10 @@
+<!-- Script php post / get -->
+<?php
+    session_start();
+    if(isset($_SESSION['username'])){
+        header('Location: index.php');
+    }
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -22,16 +29,7 @@
                             <h3 class="text-center">Register Page</h3>
                         </div>
                         <div class="card-body">
-                            <form action="insert.php" method="post">
-                                <div class="mb-3">
-                                    <label for="name">Nama Lengkap</label>
-                                    <input
-                                        type="name"
-                                        class="form-control"
-                                        name="name"
-                                        id="name"
-                                        placeholder="Nama Lengkap">
-                                </div>
+                            <form action="query/query_register.php" method="post">
                                 <div class="mb-3">
                                     <label for="username">Username</label>
                                     <input
@@ -58,15 +56,6 @@
                                         name="confirm_password"
                                         id="confirm_Password"
                                         placeholder="Confirm Password">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telepon">Nomor Telepon</label>
-                                    <input
-                                        type="telephone"
-                                        class="form-control"
-                                        name="telephone"
-                                        id="telephone"
-                                        placeholder="Nomor Telepon">
                                 </div>
                                 <div class="mb-3 text-center">
                                     <button type="submit" class="btn btn-primary">Save</button>

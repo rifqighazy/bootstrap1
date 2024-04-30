@@ -1,3 +1,10 @@
+<!-- Script php post / get -->
+<?php
+    session_start();
+    if(isset($_SESSION['username'])){
+        header('Location: index.php');
+    }
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -14,7 +21,6 @@
         <title>Simple Login Page</title>
     </head>
     <body>
-        <!-- jshbhbsf -->
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -22,8 +28,14 @@
                         <div class="card-header">
                             <h3 class="text-center">Login Page</h3>
                         </div>
-                        <div class="card-body"> 
-                            <form action="loginscript.php" method="post">
+                        <div class="card-body">
+                            <?php
+                                if(isset($_SESSION['message'])){
+                                    echo "<div class='alert alert-".$_SESSION['message']['type']." alert-dismissible fade show' role='alert'>".$_SESSION['message']['message']." <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+                                    unset($_SESSION['message']);
+                                }
+                            ?>
+                            <form action="query/query_login.php" method="post" autocomplete="off">
                                 <div class="mb-3">
                                     <label for="username">Username</label>
                                     <input
@@ -39,7 +51,7 @@
                                         type="password"
                                         class="form-control"
                                         name="password"
-                                        id="password"
+                                        id="Password"
                                         placeholder="Password">
                                 </div>
                                 <div class="float-end">
