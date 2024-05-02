@@ -72,7 +72,7 @@
                                         type="password"
                                         class="form-control"
                                         name="confirm_password"
-                                        id="confirm_Password"
+                                        id="confirm_password"
                                         placeholder="Confirm Password">
                                 </div>
                                 <div class="mb-3 text-center">

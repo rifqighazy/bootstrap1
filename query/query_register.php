@@ -6,12 +6,18 @@
         $username = $_POST['username'];
         $telephone = $_POST['telephone'];
         $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'];
+
+        if($password !== $confirm_password){
+    	    header('Location: ../register.php');
+            return false;
+        }
 
         $sql = "INSERT INTO `tb_user` (`full_name`,`username`,`password`,`nomor_telepon`,`is_active`)
         VALUES ('$name','$username',md5('$password'),'$telephone','1');";
         $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
+        if($result->num_rows > 0) {
             if($row = $result->fetch_assoc()) {
                 if($row['is_active'] == 1){
                     $_SESSION['username'] = $row['username'];
@@ -33,5 +39,5 @@
             );
         }
     }
-    header('Location: ../login.php');
+    header('location: ../login.php');
 ?>
