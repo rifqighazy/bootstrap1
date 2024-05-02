@@ -2,11 +2,13 @@
     include '../database.php';
     session_start();
     if(isset($_POST['username']) && isset($_POST['password'])){
+        $name = $_POST['name'];
         $username = $_POST['username'];
+        $telephone = $_POST['telephone'];
         $password = $_POST['password'];
 
-        $sql = "INSERT INTO `tb_user` (`username`,`password`,`is_active`)
-        VALUES ('$username',md5('$password'),'1');";
+        $sql = "INSERT INTO `tb_user` (`full_name`,`username`,`password`,`nomor_telepon`,`is_active`)
+        VALUES ('$name','$username',md5('$password'),'$telephone','1');";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -19,15 +21,15 @@
                     // Show flashdata
                     $_SESSION['message'] = array(
                         'type' => 'info',
-                        'message' => 'Maaf! Akun anda belum aktif.'                   
+                        'message' => 'Maaf! Ada yang salah pada akun anda.'                   
                     );
                 }
             }
         } else {
             // Show flashdata
             $_SESSION['message'] = array(
-                'type' => 'warning',
-                'message' => 'Maaf! Username atau Password Anda Salah.'                   
+                'type' => 'info',
+                'message' => 'Register akun telah berhasil.'                   
             );
         }
     }

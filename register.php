@@ -31,6 +31,24 @@
                         <div class="card-body">
                             <form action="query/query_register.php" method="post">
                                 <div class="mb-3">
+                                    <label for="name">Nama Lengkap</label>
+                                    <input
+                                        type="name"
+                                        class="form-control"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Nama Lengkap">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telephone">Nomor Telepon</label>
+                                    <input
+                                        type="telephone"
+                                        class="form-control"
+                                        name="telephone"
+                                        id="telephone"
+                                        placeholder="Nomor Telepon">
+                                </div>
+                                <div class="mb-3">
                                     <label for="username">Username</label>
                                     <input
                                         type="username"
