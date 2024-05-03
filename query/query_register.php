@@ -8,13 +8,42 @@
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
 
-        if($password !== $confirm_password){
-            $_SESSION['message'] = array(
-                'type' => 'info',
-                'message' => 'Maaf! Isi password dengan benar.'                   
-            );
-            header('Location: ../register.php');
-            return false;
+        if($password == $confirm_password){
+            // Check Email
+            $checkusername = "SELECT username FROM tb_user WHERE username='$username' LIMIT 1";
+            $checkusername_run = mysqli_query($conn, $checkusername);
+
+            if(mysqli_num_rows($checkusername_run) > 0)
+            {
+                // Already Email Exists
+                $_SESSION['message'] = "Username Already Exists";
+                header('Location: ../register.php');
+                exit(0);
+            }
+            else
+            {
+                $user_query = "INSERT INTO tb_users (full_name,username,nomor_telepon,password) VALUES ('$name','$username','$telephone',md5'$password')";
+                $user_query_run = mysqli_query($con, $user_query);
+
+                if($user_query_run)
+                {
+                    $_SESSION['message'] = "Registered Successfully";
+                    header("Location: ../register.php");
+                    exit(0);
+                }
+                else
+                {
+                    $_SESSION['message'] = "Something Went Wrong!";
+                    header("Location: ../register.php");
+                    exit(0);
+                }
+            }
+        }
+        else
+        {
+            $_SESSION['message'] = "Password and Confirm Password does not Match";
+            header("Location: ../register.php");
+            exit(0);
         }
 
         $sql = "INSERT INTO `tb_user` (`full_name`,`username`,`password`,`nomor_telepon`,`is_active`)
