@@ -16,7 +16,7 @@
             if(mysqli_num_rows($checkusername_run) > 0)
             {
                 // Already Email Exists
-                $_SESSION['message'] = "Username Already Exists";
+                $_SESSION['message'] = "Maaf! Username sudah terdaftar.";
                 header('Location: ../register.php');
                 exit(0);
             }
@@ -27,13 +27,13 @@
 
                 if($user_query_run)
                 {
-                    $_SESSION['message'] = "Registered Successfully";
+                    $_SESSION['message'] = "Registrasi telah berhasil.";
                     header("Location: ../register.php");
                     exit(0);
                 }
                 else
                 {
-                    $_SESSION['message'] = "Something Went Wrong!";
+                    $_SESSION['message'] = "Maaf! Ada yang salah!";
                     header("Location: ../register.php");
                     exit(0);
                 }
@@ -41,7 +41,7 @@
         }
         else
         {
-            $_SESSION['message'] = "Password and Confirm Password does not Match";
+            $_SESSION['message'] = "Password dan Konfirmasi Password tidak cocok";
             header("Location: ../register.php");
             exit(0);
         }

@@ -75,13 +75,13 @@
                                         placeholder="Password">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="Password">Confirm Password</label>
+                                    <label for="Password">Konfirmasi Password</label>
                                     <input
                                         type="password"
                                         class="form-control"
                                         name="confirm_password"
                                         id="confirm_password"
-                                        placeholder="Confirm Password">
+                                        placeholder="Konfirmasi Password">
                                 </div>
                                 <div class="mb-3 text-center">
                                     <button type="submit" class="btn btn-primary">Save</button>
