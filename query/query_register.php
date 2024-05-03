@@ -9,7 +9,11 @@
         $confirm_password = $_POST['confirm_password'];
 
         if($password !== $confirm_password){
-    	    header('Location: ../register.php');
+            $_SESSION['message'] = array(
+                'type' => 'info',
+                'message' => 'Maaf! Isi password dengan benar.'                   
+            );
+            header('Location: ../register.php');
             return false;
         }
 
