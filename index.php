@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
+$link = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,8 +67,9 @@ if(!isset($_SESSION['username'])){
                             <li class="nav-item has-submenu">
                                 <a class="nav-link" href="#"><span data-feather="archive"></span> Products <span class="float-end" data-feather="chevrons-down"></span></a>
                                 <ul class="submenu collapse">
-                                    <li><a class="nav-link" href="index.php?page=add-product"><span data-feather="plus"></span> Add New </a></li>
-                                    <li><a class="nav-link" href="index.php?page=product"><span data-feather="file"></span> List Products </a></li>
+                                    <li><a class="nav-link" href="index.php?page=add"><span data-feather="plus"></span> Add New </a></li>
+                                    <li><a class="nav-link" href="index.php?page=list"><span data-feather="file"></span> List Products </a></li>
+                                    <li><a class="nav-link" href="index.php?page=delete"><span data-feather="trash"></span> Delete Products </a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -78,6 +80,7 @@ if(!isset($_SESSION['username'])){
         <!-- Penutup navigasi -->
         <!-- Bagian content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <a href="product-add.php?continue=<?php echo $link; ?>"></a>
         <?php 
             if(isset($_GET['page'])){
                 $page = $_GET['page'];
@@ -91,14 +94,14 @@ if(!isset($_SESSION['username'])){
                     case 'user':
                     include "user.php";
                     break; 
-                    case 'product';
-                    include "products-list.php";
+                    case 'add':
+                    include "product-add.php";
                     break;
-                    case 'add-product';
-                    include "products-add.php";
+                    case 'list':
+                    include "product-list.php";
                     break;
-                    case 'edit-product';
-                    include "products-add.php";
+                    case 'delete':
+                    include "product-delete.php";
                     break;
                 }
             }
