@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION['username'])){
     header('Location: login.php');
 }
-$link = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +79,6 @@ $link = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         <!-- Penutup navigasi -->
         <!-- Bagian content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <a href="product-add.php?continue=<?php echo $link; ?>"></a>
         <?php 
             if(isset($_GET['page'])){
                 $page = $_GET['page'];
