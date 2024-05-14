@@ -14,15 +14,15 @@
     <tbody>
       <?php
       include 'database.php';
-      $dataproduk = mysqli_query($conn,"SELECT * FROM tb_produk");
+      $dataproduk = mysqli_query($conn,"SELECT * FROM tb_product");
       
       $nomor = 1;
 
       while($data = mysqli_fetch_array($dataproduk)){
-        $namaproduk = $data['nama_produk'];
-        $harga = $data['harga'];
-        $stok = $data['stok'];
-        $kategori = $data['kategori'];
+        $namaproduk = $data['name'];
+        $harga = $data['price'];
+        $stok = $data['stock'];
+        $kategori = $data['category'];
 
       ?>
       <tr>

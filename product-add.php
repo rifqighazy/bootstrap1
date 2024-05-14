@@ -19,7 +19,7 @@
         ?>
         <div class="collapse" id="collapseExample">
           <div class="card card-body border-dark">
-            <form action="query_product-add.php" method="post">
+            <form action="query/query_product-add.php" method="post">
               <div class="mb-3">
                   <label for="namaproduk">Nama Produk</label>
                   <input 
