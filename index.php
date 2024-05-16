@@ -76,16 +76,16 @@ if(!isset($_SESSION['username'])){
                             <li class="nav-item has-submenu">
                                 <a 
                                     class="nav-link 
-                                        <?php if((isset($_GET['page'])) && ($_GET['page'] == 'list' || $_GET['page'] == 'add' || $_GET['page'] == 'edit')){echo 'active';} ?>" 
+                                        <?php if((isset($_GET['page'])) && ($_GET['page'] == 'list' || $_GET['page'] == 'add' || $_GET['page'] == 'edit' || $_GET['page'] == 'delete')){echo 'active';} ?>" 
                                     href="#">
                                     <span data-feather="archive"></span> Products <span class="float-end" data-feather="chevrons-down"></span>
                                 </a>
                                     <ul class="submenu collapse">
                                         <li><a 
                                                 class="nav-link 
-                                                    <?php if((isset($_GET['page'])) && ($_GET['page'] == 'add' || $_GET['page'] == 'edit')){echo 'active';} ?>" 
-                                                href="index.php?page=add">
-                                                <span data-feather="plus"></span> Add New </a>
+                                                    <?php if((isset($_GET['page'])) && $_GET['page'] == 'menu' || $_GET['page'] == 'add' || $_GET['page'] == 'edit' || $_GET['page'] == 'delete'){echo 'active';} ?>" 
+                                                href="index.php?page=menu">
+                                                <span data-feather="plus"></span> Add Product </a>
                                         </li>
                                         <li><a 
                                                 class="nav-link 
@@ -94,15 +94,6 @@ if(!isset($_SESSION['username'])){
                                                 <span data-feather="file"></span> List Products </a>
                                         </li>
                                     </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a 
-                                    class="nav-link 
-                                        <?php if(isset($_GET['page']) && $_GET['page'] == 'transaction'){echo 'active';} ?>" 
-                                    href="index.php?page=transaction">
-                                    <span data-feather="dollar-sign"></span>
-                                    Transactions
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -125,11 +116,17 @@ if(!isset($_SESSION['username'])){
                     case 'user':
                     include "user.php";
                     break; 
+                    case 'menu':
+                    include "menu.php";
+                    break;
                     case 'add':
                     include "product-add.php";
                     break;
                     case 'edit':
                     include "product-edit.php";
+                    break;
+                    case 'delete':
+                    include "product-delete.php";
                     break;
                     case 'list':
                     include "product-list.php";

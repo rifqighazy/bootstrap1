@@ -1,3 +1,10 @@
+<?php
+  if(isset($_SESSION['message'])){
+    echo "<div class='alert alert-".$_SESSION['message']['type']." alert-dismissible fade show' role='alert'>".$_SESSION['message']['message']." <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+    unset($_SESSION['message']);
+  }
+?>
+
 <div class="container mt-3">
   <h2>Table Head Colors</h2>
   <p>You can use any of the contextual classes to only add a color to the table header:</p>
