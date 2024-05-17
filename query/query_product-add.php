@@ -11,12 +11,16 @@ if(isset($_POST['namaproduk'])){
     $insert = mysqli_query($conn, $product);
 
     if($insert){
+        $_SESSION['message'] = array(
+            'type' => 'info',
+            'message' => 'Data berhasil masuk'                   
+        );
         header('Location: ../index.php?page=list');
         }
         else{
             $_SESSION['message'] = array(
-                'type' => 'danger',
-                'message' => 'Data gagal disimpan'.mysqli_error($conn)                   
+                'type' => 'info',
+                'message' => 'Error'                   
             );
             header('Location: ../index.php?page=add');
         }

@@ -83,13 +83,13 @@ if(!isset($_SESSION['username'])){
                                     <ul class="submenu collapse">
                                         <li><a 
                                                 class="nav-link 
-                                                    <?php if((isset($_GET['page'])) && $_GET['page'] == 'menu' || $_GET['page'] == 'add' || $_GET['page'] == 'edit' || $_GET['page'] == 'delete'){echo 'active';} ?>" 
-                                                href="index.php?page=menu">
+                                                    <?php if((isset($_GET['page'])) && $_GET['page'] == 'add'){echo 'active';} ?>" 
+                                                href="index.php?page=add">
                                                 <span data-feather="plus"></span> Add Product </a>
                                         </li>
                                         <li><a 
                                                 class="nav-link 
-                                                    <?php if(isset($_GET['page']) && $_GET['page'] == 'list'){echo 'active';} ?>" 
+                                                    <?php if(isset($_GET['page']) && ($_GET['page'] == 'list' || $_GET['page'] == 'edit' || $_GET['page'] == 'delete')){echo 'active';} ?>" 
                                                 href="index.php?page=list">
                                                 <span data-feather="file"></span> List Products </a>
                                         </li>
@@ -116,23 +116,14 @@ if(!isset($_SESSION['username'])){
                     case 'user':
                     include "user.php";
                     break; 
-                    case 'menu':
-                    include "menu.php";
-                    break;
                     case 'add':
                     include "product-add.php";
                     break;
                     case 'edit':
                     include "product-edit.php";
                     break;
-                    case 'delete':
-                    include "product-delete.php";
-                    break;
                     case 'list':
                     include "product-list.php";
-                    break;
-                    case 'transaction';
-                    include "transaction.php";
                     break;
                     default:
                     include "home.php";
