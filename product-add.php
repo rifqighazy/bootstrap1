@@ -1,7 +1,6 @@
 <div class="container">
-  <div
-      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-dark border-bottom">
-      <h1 class="h2">Add Product</h1>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-dark border-bottom">
+    <h1 class="h2">Add Product</h1>
   </div>
 </div>
 
@@ -19,52 +18,42 @@ if(isset($_SESSION['message'])){
         <div class="card-body">
           <h5 class="card-title">Tambah Produk</h5>
           <p class="card-text">Jika ingin menambah produk. Isi form dibawah ini!</p>
-              <form action="query/query_product-add.php" method="post">
-                <div class="mb-3">
-                    <label for="namaproduk">Nama Produk</label>
-                    <input 
-                        type="text"
-                        class="form-control"
-                        name="namaproduk"
-                        placeholder="Nama Produk"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label for="harga">Harga</label>
-                    <input 
-                        type="number"
-                        class="form-control"
-                        name="harga"
-                        placeholder="Harga"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label for="stok">Stock</label>
-                    <input 
-                        type="number"
-                        class="form-control"
-                        name="stok"
-                        placeholder="Stock"
-                        required>
-                </div>
-                <div class="mb-3">
-                    <label for="kategori" class="form-label">Kategori</label>
-                    <select class="form-select" name="kategori" aria-label="Default select example" required>
-                        <option value="">Pilih Kategori</option>
-                        <option value="Makanan Ringan">Makanan Ringan</option>
-                        <option value="Makanan Berat">Makanan Berat</option>
-                        <option value="Minuman">Minuman</option>
-                    </select>
-                </div>
-                <br>
-                <div class="mb-3 d-grid">
-                    <button type="Submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+          <form action="query/query_product-add.php" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="namaproduk">Nama Produk</label>
+              <input type="text" class="form-control" name="namaproduk" placeholder="Nama Produk" required>
             </div>
-          </div>
+            <div class="mb-3">
+              <label for="harga">Harga</label>
+              <input type="number" class="form-control" name="harga" placeholder="Harga" required>
+            </div>
+            <div class="mb-3">
+              <label for="stok">Stock</label>
+              <input type="number" class="form-control" name="stok" placeholder="Stock" required>
+            </div>
+            <div class="mb-3">
+              <label for="kategori" class="form-label">Kategori</label>
+              <select class="form-select" name="kategori" aria-label="Default select example" required>
+                <option value="">Pilih Kategori</option>
+                <option value="Makanan Ringan">Makanan Ringan</option>
+                <option value="Makanan Berat">Makanan Berat</option>
+                <option value="Minuman">Minuman</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="image">Gambar</label>
+              <input type="file" class="form-control" name="foto" id="fileToUpload" placeholder="Gambar" required>
+              <span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
+            </div>
+            <br>
+            <div class="mb-3 d-grid">
+              <button type="Submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

@@ -89,7 +89,7 @@ if(!isset($_SESSION['username'])){
                                         </li>
                                         <li><a 
                                                 class="nav-link 
-                                                    <?php if(isset($_GET['page']) && ($_GET['page'] == 'list' || $_GET['page'] == 'edit' || $_GET['page'] == 'delete')){echo 'active';} ?>" 
+                                                    <?php if(isset($_GET['page']) && ($_GET['page'] == 'list' || $_GET['page'] == 'edit')){echo 'active';} ?>" 
                                                 href="index.php?page=list">
                                                 <span data-feather="file"></span> List Products </a>
                                         </li>

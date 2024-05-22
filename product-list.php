@@ -1,5 +1,5 @@
 <?php
-include 'query/query_product-list.php';
+include 'query/list.php';
 ?>
 <div class="container">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-dark border-bottom">
@@ -16,10 +16,11 @@ include 'query/query_product-list.php';
         <th scope="col">Harga</th>
         <th scope="col">Stok</th>
         <th scope="col">Kategori</th>
+        <th scope="col">Gambar</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <?php foreach($hasil as $row) : ?>
+    <?php while($row = $hasil->fetch_assoc()) { ?>
     <tbody>
       <tr>
         <td><?php echo $no++; ?></td>
@@ -27,19 +28,11 @@ include 'query/query_product-list.php';
         <td><?php echo $row['price']; ?></td>
         <td><?php echo $row['stock']; ?></td>
         <td><?php echo $row['category']; ?></td>
-        <td>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <a href="index.php?page=edit&id<?php echo $row['id']; ?>">  
-              <button class="btn btn-warning" type="button">Edit</button>
-            </a>
-            <a href="query/query_product-delete.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Anda yakin ingin menghapus produk?')">
-              <button class="btn btn-danger" type="submit" name="delete">Delete</button>
-            </a>
-          </div>
-        </td>
+        <td style="text-align: center;"><img src="<?php echo 'assets/images/produk/'.$row['image']; ?>" class="img-thumbnail" style="width: 120px;"></td>
+        <td><a href="index.php?page=edit&id=<?php echo $row['id'] ?>" type="button" class="btn btn-warning">Edit</a> <a href="query/delete.php?id=<?php echo $row['id'] ?>" type="button" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ingin menghapus data ini?')">Hapus</a></td>
       </tr>
     </tbody>
-    <?php endforeach; ?>
+    <?php } ?>
   </table>
 </div>
 
