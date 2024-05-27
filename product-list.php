@@ -3,7 +3,7 @@ include 'query/list.php';
 ?>
 <div class="container">
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-dark border-bottom">
-    <h1 class="h2">Add Product</h1>
+    <h1 class="h2">List Product</h1>
   </div>
 </div>
 
@@ -12,12 +12,12 @@ include 'query/list.php';
     <thead class="table-dark">
       <tr>
         <th scope="col">No</th>
-        <th scope="col">Nama Produk</th>
-        <th scope="col">Harga</th>
-        <th scope="col">Stok</th>
-        <th scope="col">Kategori</th>
-        <th scope="col">Gambar</th>
-        <th scope="col">Action</th>
+        <th scope="col">Products</th>
+        <th scope="col">Prices</th>
+        <th scope="col">Stocks</th>
+        <th scope="col">Categories</th>
+        <th scope="col">Images</th>
+        <th scope="col">Edit / Delete</th>
       </tr>
     </thead>
     <?php while($row = $hasil->fetch_assoc()) { ?>
@@ -28,7 +28,7 @@ include 'query/list.php';
         <td><?php echo $row['price']; ?></td>
         <td><?php echo $row['stock']; ?></td>
         <td><?php echo $row['category']; ?></td>
-        <td style="text-align: center;"><img src="<?php echo 'assets/images/produk/'.$row['image']; ?>" class="img-thumbnail" style="width: 120px;"></td>
+        <td style="text-align: center;"><img src="uploads/images/products/<?php echo $row['image']; ?>" class="img-thumbnail" style="width: 80px;"></td>
         <td><a href="index.php?page=edit&id=<?php echo $row['id'] ?>" type="button" class="btn btn-warning">Edit</a> <a href="query/delete.php?id=<?php echo $row['id'] ?>" type="button" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin ingin menghapus data ini?')">Hapus</a></td>
       </tr>
     </tbody>

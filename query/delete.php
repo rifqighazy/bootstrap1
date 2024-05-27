@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 $gambar = mysqli_query($conn, "SELECT * from tb_product where id='$id'");
 $get = mysqli_fetch_array($gambar);
-$target = 'C:xampp/htdocs/bootstrap1/assets/images/produk/';
+$target = '../uploads/images/products/';
 $img = $target .$get['image'];
 unlink($img);
 

@@ -1,3 +1,5 @@
+<?php include 'query/edit.php'; ?>
+
 <div class="container">
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-dark border-bottom">
@@ -17,28 +19,28 @@ if(isset($_SESSION['message'])){
     <div class="col">
       <div class="card mb-3 border-2">
         <div class="card-body">
-          <h5 class="card-title">Tambah Produk</h5>
-          <p class="card-text">Jika ingin menambah produk. Isi form dibawah ini!</p>
-          <?php include 'query/edit.php'; ?>
+          <h5 class="card-title">Edit Produk</h5>
+          <p class="card-text">Jika ingin mengedit produk. Isi form dibawah ini!</p>
+          <?php $data = mysqli_fetch_assoc($show); ?>
           <form action="query/query_product-edit.php" method="post" enctype="multipart/form-data">
-          <input type="" name="id" value="<?php echo $data['id'] ?>">
+          <input type="hidden" name="id" id="id" value="<?php echo $data['id'] ?>">
             <div class="mb-3">
-                <label for="namaproduk">Nama Produk</label>
+                <label for="namaproduk">Product</label>
                 <input 
                     type="text"
                     class="form-control"
                     name="namaproduk"
-                    placeholder="Nama Produk"
+                    placeholder="Product"
                     value="<?php echo $data['name'] ?>"
                     required>
             </div>
             <div class="mb-3">
-                <label for="harga">Harga</label>
+                <label for="harga">Price</label>
                 <input 
                     type="number"
                     class="form-control"
                     name="harga"
-                    placeholder="Harga"
+                    placeholder="Price"
                     value="<?php echo $data['price'] ?>"
                     required>
             </div>
@@ -52,27 +54,33 @@ if(isset($_SESSION['message'])){
                     value="<?php echo $data['stock'] ?>"
                     required>
             </div>
-            <div class="mb-3">
-                <label for="kategori" class="form-label">Kategori</label>
+            <div class="mb-4">
+                <label for="kategori" class="form-label">Category</label>
                 <select class="form-select" name="kategori" aria-label="Default select example" required>
-                    <option value="">Pilih Kategori</option>
+                    <option value="">Category</option>
                     <option value="Makanan Ringan">Makanan Ringan</option>
                     <option value="Makanan Berat">Makanan Berat</option>
                     <option value="Minuman">Minuman</option>
                 </select>
             </div>
             <div class="mb-3">
-              <label for="image">Gambar</label>
-              <input type="file" class="form-control" name="foto" id="fileToUpload" placeholder="Gambar">
-              <input type="" name="fotolama" value="<?php echo $data['image'] ?>">
-              <span style="color:red; font-size:12px;">Only jpg / jpeg/ png /gif format allowed.</span>
+              <div class="row align-items-start">
+                <div class="col-1">
+                  <img src="uploads/images/products/<?php echo $data['image']; ?>" width="100px">
+                </div>
+                <div class="col-11">
+                  <label for="image">Image</label>
+                  <input type="file" class="form-control" name="foto" id="fileToUpload" placeholder="Gambar">
+                  <input type="hidden" name="fotolama" value="<?php echo $data['image'] ?>">
+                  <span style="color:red; font-size:12px;">Only JPG / JPEG / PNG format allowed.</span>
+                </div>
+              </div>
             </div>
-            <img src="<?php echo $target . $data['image']; ?>" width="100px">
-            <br>
-            <div class="mb-3 d-grid">
+            <div class="mt-4 mb-2 d-grid">
                 <button type="Submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
+          <?php  ?>
         </div>
       </div>
     </div>
